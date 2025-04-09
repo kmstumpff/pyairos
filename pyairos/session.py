@@ -22,9 +22,13 @@ class Session:
 
     async def ping(self):
         try:
-            async with self.get(self.host) as response:
-                return response.status == 200
-        except aiohttp.ClientConnectionError:
+            response = await self.session.get(self.host, ssl=self.verify)
+            if response.status == 200:
+                return True
+            else:
+                return False
+        except aiohttp.ClientConnectionError as e:
+            print(f"Ping failed: {e}")
             return False
 
     async def get(self, url: str):

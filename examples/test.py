@@ -15,6 +15,13 @@ async def main():
         print("Failed to login")
         return
     
+    ping = await airos.ping()
+
+    if not ping:
+        print("Ping failed")
+        return
+    print("Ping successful")
+    
     status = await airos.get_local_status()
     print(status)
 
