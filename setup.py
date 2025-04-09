@@ -9,8 +9,8 @@ setup(
     description="Python library for Ubiquiti's AirOS",
     packages=find_packages(),
     install_requires=[
-        'aiohttp==3.11.16',
-        'asyncio==3.4.3',
-        'typing-extensions==4.13.1',
+        'aiohttp>=3.11.14,<4.0.0',
+        'asyncio>=3.4.3,<4.0.0',
+        'typing-extensions>=4.13.1,<5.0.0',
     ],
 )
